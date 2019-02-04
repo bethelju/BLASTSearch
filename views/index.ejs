@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  </head>
+  <body>
+    <h1>Home Page!</h1>
+    <form method="GET" action="/results">
+      <fieldset>
+                <legend>BLAST Search Form</legend>
+                <fieldset>
+                    
+                        Please enter a FASTA sequence
+                        </br>
+                       <input name="Seq" type="text">
+                       
+                       </textarea>
+                    </label>
+                </fieldset>
+                <fieldset>
+                  <legend>Database</legend>
+                    <caption>Please choose a database:</caption>
+                    </br>
+                    <label>
+                        Non-redundant UniProtKB/SwissProt sequences
+                        <input name="database" type="radio" value="swissprot" />
+                    </label>
+                    </br>
+                    <label>
+                        Non-Redundant Protein Collection (nr)
+                        <input name="database" type="radio" value="nr" />
+                    </label>
+                    </br>
+                    <label>
+                       Protein Data Bank database (pdbaa)
+                        <input name="database" type="radio" value="pdb"/>
+                    </label>
+                    </br>
+                    <input type="submit" value="Submit" />
+                </fieldset>
+            </fieldset>
+            </form>
+    </form>
+  </body>
+</html>
