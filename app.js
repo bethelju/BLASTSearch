@@ -15,8 +15,14 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
+app.use("/public", express.static('public')); 
+
 app.get("/", function(req, res){
     res.render("index");
+});
+
+app.get("/search", function(req, res){
+    res.render("search");    
 });
 
 app.get("/waiting", function(req, res){
@@ -40,7 +46,7 @@ app.get("/waiting", function(req, res){
     setTimeout(checkStatus, 60000);
     console.log("After loop");*/
     
-    var getURL = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Get&VIEWRESULTS=FromRes&RID=5WDURTWA01R&FORMAT_TYPE=XML2_S";
+    var getURL = "https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Get&VIEWRESULTS=FromRes&RID=611YMU5R014&FORMAT_TYPE=XML2_S";
     request.get(getURL, function(error, response, body){
         if (!error && response.statusCode == 200){
             var xml = body;

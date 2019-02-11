@@ -1,46 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>title</title>
-  </head>
-  <body>
-    <h1>Home Page!</h1>
-    <form method="GET" action="/waiting">
-      <fieldset>
-                <legend>BLAST Search Form</legend>
-                <fieldset>
-                    
-                        Please enter a FASTA sequence
-                        </br>
-                       <input name="Seq" type="text">
-                       
-                       </textarea>
-                    </label>
-                </fieldset>
-                <fieldset>
-                  <legend>Database</legend>
-                    <caption>Please choose a database:</caption>
-                    </br>
-                    <label>
-                        Non-redundant UniProtKB/SwissProt sequences
-                        <input name="database" type="radio" value="swissprot" />
-                    </label>
-                    </br>
-                    <label>
-                        Non-Redundant Protein Collection (nr)
-                        <input name="database" type="radio" value="nr" />
-                    </label>
-                    </br>
-                    <label>
-                       Protein Data Bank database (pdbaa)
-                        <input name="database" type="radio" value="pdb"/>
-                    </label>
-                    </br>
-                    <input type="submit" value="Submit" />
-                </fieldset>
-            </fieldset>
-            </form>
-    </form>
-  </body>
-</html>
+<% include ./partials/header %>
+<h1>Hello! Welcome to the Blast Search Website</h1>
+<h2>What is this website?</h2>
+<p>This website was designed to use the National Center for Biotechnology Information's Blast Search API. A BLAST search 
+is a useful tool in biomedical research to search for known genes or proteins in NCBI databases based on nucleotide or amino acid sequences</p>
+<p>I designed it so that one could perform and save searches to individual accounts and look back on them later.</p>
+<h2>How do I use it?</h2>
+<p>Just click on the <a href="/search">search link</a>. Knowing that most people won't have amino acid or nucleotide sequences on hand, there are several default sequences that you can choose from to begin.</p>
+<h2>How do you plan on improving this website?</h2>
+<p>I'm planning on adding authentication/user accounts as well as the ability to upload text documents with FASTA sequences/ascension numbers to be parsed and searched. Of course, I also plan on dressing up the website as well with some CSS</p>
+<% include ./partials/footer %>

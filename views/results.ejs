@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>title</title>
-  </head>
-  <body>
+<% include ./partials/header %>
   <h1>THESE ARE THE RESULTS</h1>
   <% hits.forEach(function(hit){ %>
     <span> <%= Array.isArray(hit.description.HitDescr) ? hit.description.HitDescr[0].title._text : hit.description.HitDescr.title._text%></span>
   </br>
   <% }) %>
-  </body>
-</html>
+<% include ./partials/footer %>

@@ -1,0 +1,47 @@
+<% include ./partials/header %>
+    <h1>Search Page!</h1>
+    <form method="GET" action="/waiting">
+      <fieldset>
+                <legend>BLAST Search Form</legend>
+                <fieldset>
+                    
+                        Please enter a FASTA sequence or ascension number
+                        </br>
+                        <caption>Feel free to choose a default ascension number</caption>
+                        </br>
+                        <label>
+                            Acetylcholinesterase(AchE)
+                            <input name="default" type="radio" value="AchE">
+                        </label>
+                        </br>
+                       <input name="Seq" type="text">
+                       
+                </fieldset>
+                <fieldset>
+                  <legend>Database</legend>
+                    <caption>Please choose a database:</caption>
+                    </br>
+                    <label>
+                        Non-redundant UniProtKB/SwissProt sequences
+                        <input name="database" type="radio" value="swissprot" />
+                    </label>
+                    </br>
+                    <label>
+                        Non-redundant Protein Collection (nr)
+                        <input name="database" type="radio" value="nr" />
+                    </label>
+                    </br>
+                    <label>
+                       Protein Data Bank database (pdbaa)
+                        <input name="database" type="radio" value="pdb"/>
+                    </label>
+                    </br>
+                    <input type="submit" value="Submit" />
+                </fieldset>
+            </fieldset>
+            </form>
+    </form>
+    <script src="/searchDefault.js">
+    </script>
+  </body>
+</html>
