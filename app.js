@@ -6,9 +6,8 @@ bodyParser  = require("body-parser"),
 mongoose    = require("mongoose"),
 convert = require('xml-js');
 
-mongoose.connect("mongodb://localhost/BLAST",  {useNewUrlParser:true });
-//console.log(process.env.DATABASEURL);
-//mongoose.connect("mongodb://justin1:Truman911@ds145304.mlab.com:45304/puppypocketbook", {useNewUrlParser:true });
+//mongoose.connect("mongodb://localhost/BLAST",  {useNewUrlParser:true });
+mongoose.connect("mongodb://justin1:Truman911@ds137255.mlab.com:37255/blastsearch", {useNewUrlParser:true });
 
 //APP CONFIG
 app.set("view engine", "ejs");
@@ -136,26 +135,29 @@ app.post("/search", function(req, res){
                                         function(err, model) {
                                             if(err){
                                                 Search.findByIdAndUpdate(id, {status: "ERROR"});
+                                                clearInterval(refreshId);
                                             }
                                         }
                                     );
                                 }
-                                //res.render("results", {hits: hits});
+                                clearInterval(refreshId);
                             }
                             catch(err){
-                                console.log(err);
+                                 Search.findByIdAndUpdate(id, {status: "ERROR"});
+                                clearInterval(refreshId);
                             }
                         }
                         else{
-                            res.send("There was an error");
+                            Search.findByIdAndUpdate(id, {status: "ERROR"});
+                            clearInterval(refreshId);
                         }
-                        clearInterval(refreshId);
+                        
                     });
                     
                 }
             }
             else {
-                res.send("There was an error");
+                Search.findByIdAndUpdate(id, {status: "ERROR"});
                 clearInterval(refreshId);
             }
         });
