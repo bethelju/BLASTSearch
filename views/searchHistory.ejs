@@ -1,0 +1,19 @@
+<% include ./partials/header %>
+<div class="container ui main">
+    <h1>Search List</h1>
+    <h5>If a search is completed, you can click on the status to view results. Searches can take 1 - 10 minutes. Refreshing the page will refresh the search status.</h3>
+    <% searches.reverse().forEach(function(search){ %>
+      <div class= "ui vertical segment">
+        <p>Name:  <%= search.title %> </p>
+        <p>Date Searched:  <%= search.created %> </p>
+        <p>Status:  
+        <% if(search.status=="READY"){%>
+            <a href="/results/<%=search._id%>"><%= search.status %></a>
+          <% } else {%> 
+            <%= search.status %>
+          <% } %>
+        </p>
+      </div>
+    <% }) %>
+  </div>
+<% include ./partials/footer %>

@@ -1,7 +1,17 @@
 <% include ./partials/header %>
-  <h1>THESE ARE THE RESULTS</h1>
-  <% hits.forEach(function(hit){ %>
-    <span> <%= Array.isArray(hit.description.HitDescr) ? hit.description.HitDescr[0].title._text : hit.description.HitDescr.title._text%></span>
-  </br>
-  <% }) %>
+  <div class="container ui main">
+    <h1>THESE ARE THE RESULTS</h1>
+    <p>Search Title: <%=search.title%></p>
+    <p>Search Date: 
+    <%var date = search.created;
+    var myDate = new Date(date.toUTCString());%>
+    <%=myDate.toLocaleString()%></p>
+   
+    <% search.hit.forEach(function(hit){ %>
+      <div class= "ui vertical segment">
+        <span>Title: <%= hit.title%></span>
+        <p>Evalue: <%=hit.Evalue%></p>
+      </div>
+    <% }) %>
+  </div>
 <% include ./partials/footer %>

@@ -1,46 +1,53 @@
 <% include ./partials/header %>
-    <h1>Search Page!</h1>
-    <form method="GET" action="/waiting">
-      <fieldset>
-                <legend>BLAST Search Form</legend>
-                <fieldset>
-                    
-                        Please enter a FASTA sequence or ascension number
-                        </br>
-                        <caption>Feel free to choose a default ascension number</caption>
+    <div class="ui container main">
+        <h1>Search Page!</h1>
+        <form method="POST" action="/search">
+          <fieldset>
+                    <legend>BLAST Search Form</legend>
+                    <fieldset>
+                            
+                            Enter an accession number
+                            <input name="Seq" type="text" required pattern="[A-Z]{1}[0-9]{5}">
+                            or choose a default: 
+                            <select>
+                                <option value="">Choose a protein</option>
+                                <option value="P22303">Acetylcholinesterase</option>
+                                <option value="P06732">Creatine Kinase</option>
+                                <option value="P23560">BDNF</option>
+                                <option value="P01308">Insulin</option>
+                            </select>
+                            </br>
+                             Query Name: 
+                            <input name ="title" type="text" required>
+                            </br>
+                    </fieldset>
+                    <fieldset>
+                      <legend>Database</legend>
+                        <caption>Please choose a database:</caption>
                         </br>
                         <label>
-                            Acetylcholinesterase(AchE)
-                            <input name="default" type="radio" value="AchE">
+                            Non-redundant UniProtKB/SwissProt sequences
+                            <input name="database" type="radio" value="swissprot" />
                         </label>
                         </br>
-                       <input name="Seq" type="text">
-                       
+                        <label>
+                            Non-redundant Protein Collection (nr)
+                            <input name="database" type="radio" value="nr" checked="checked"/>
+                        </label>
+                        </br>
+                        <label>
+                           Protein Data Bank database (pdbaa)
+                            <input name="database" type="radio" value="pdb"/>
+                        </label>
+                        </br>
+                        <input type="submit" value="Submit" />
+                    </fieldset>
                 </fieldset>
-                <fieldset>
-                  <legend>Database</legend>
-                    <caption>Please choose a database:</caption>
-                    </br>
-                    <label>
-                        Non-redundant UniProtKB/SwissProt sequences
-                        <input name="database" type="radio" value="swissprot" />
-                    </label>
-                    </br>
-                    <label>
-                        Non-redundant Protein Collection (nr)
-                        <input name="database" type="radio" value="nr" />
-                    </label>
-                    </br>
-                    <label>
-                       Protein Data Bank database (pdbaa)
-                        <input name="database" type="radio" value="pdb"/>
-                    </label>
-                    </br>
-                    <input type="submit" value="Submit" />
-                </fieldset>
-            </fieldset>
-            </form>
-    </form>
+                </form>
+        </form>
+        <p>The search may take from 1 to 10 minutes to complete depending on time of day. Searches will be slower evenings/nights (EST) because all requests go through
+        the NCBI in Bethesda, MD. </p>
+    </div>
     <script src="/searchDefault.js">
     </script>
   </body>
