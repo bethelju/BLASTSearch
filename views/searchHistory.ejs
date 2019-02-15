@@ -2,7 +2,7 @@
 <div class="container ui main">
     <h1>Search List</h1>
     <h5>If a search is completed, you can click on the status to view results. Searches can take 1 - 10 minutes. You should refresh the page to refresh the search status.</h5>
-    <h5>The following are all the searches performed on this website</h5>
+    <h5>The following are all the recent searches performed on this website</h5>
     <% searches.reverse().forEach(function(search){ %>
       <div class= "ui vertical segment">
         <p>Name:  <%= search.title %> </p>
