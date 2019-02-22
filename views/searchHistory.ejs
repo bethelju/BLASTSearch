@@ -1,17 +1,15 @@
 <% include ./partials/header %>
 <div class="container ui main">
-    <h1>Search List</h1>
+    <h1 id="firstHeader">Search List</h1>
     <h5>If a search is completed, you can click on the status to view results. Searches can take 1 - 10 minutes. You should refresh the page to refresh the search status.</h5>
     <h5>The following are all the recent searches performed on this website</h5>
     <div style="overflow: auto;">
-      <% console.log(searches.hit);%>
       <% searches.reverse().forEach(function(search){ %>
         <div class= "ui vertical segment">
           <p>Name:  <%= search.title %> </p>
           
-            <p>Date Searched:  
-            <% var myDate = new Date(search.created); %>
-            <%= myDate.toLocaleString();%>
+            <p class="date">  
+            <%= search.created%>
             </p>
             
           <p>Status:  
@@ -25,4 +23,6 @@
       <% }) %>
     </div>
   </div>
+  <script src="timezoneConvert.js">
+  </script>
 <% include ./partials/footer %>

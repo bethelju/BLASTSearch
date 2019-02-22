@@ -3,10 +3,9 @@
     <h1>RESULTS</h1>
     <h4>The Evalue represents the similarity of the submitted and matched sequences. Smaller evalues represent closer matches</h4>
     <p>Search Title: <%=search.title%></p>
-    <p>Search Date: 
-    <%var date = search.created;
-    var myDate = new Date(date.toUTCString());%>
-    <%=myDate.toLocaleString()%></p>
+    <p class="date">
+    <%= search.created;%>
+    </p>
    
     <% search.hit.forEach(function(hit){ %>
       <div class= "ui vertical segment">
@@ -15,4 +14,11 @@
       </div>
     <% }) %>
   </div>
+  <script>
+    var dateList = document.getElementsByClassName("date");
+    for (var i = 0; i <dateList.length; i++){
+      var localDate = new Date(dateList[i].textContent);
+      dateList[i].textContent = "Date Searched: " + localDate.toLocaleString();
+    }
+  </script>
 <% include ./partials/footer %>
