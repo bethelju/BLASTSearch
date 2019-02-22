@@ -4,6 +4,9 @@ request     = require("request"),
 bodyParser  = require("body-parser"),
 mongoose    = require("mongoose"),
 convert = require('xml-js');
+var moment = require('moment');
+moment().format();
+app.locals.moment = moment;
 
 //mongoose.connect("mongodb://localhost/BLAST",  {useNewUrlParser:true });
 mongoose.connect("mongodb://justin1:Truman911@ds137255.mlab.com:37255/blastsearch", {useNewUrlParser:true });
@@ -32,6 +35,14 @@ var searchSchema = new mongoose.Schema({
 var Search = mongoose.model("Search", searchSchema);
 var BlastHit = mongoose.model("BlastHit", hitArrSchema);
 
+function compare(a,b) {
+  if (a.created < b.created)
+    return -1;
+  if (a.created > b.created)
+    return 1;
+  return 0;
+}
+
 //ROUTES
 app.get("/", function(req, res){
     res.render("index");
@@ -50,6 +61,7 @@ app.get("/pastSearch", function(req, res){
                 }
             });
 });
+
 
 app.get("/results/:id", function(req, res){
     Search.findById(req.params.id, function(err, foundSearch){

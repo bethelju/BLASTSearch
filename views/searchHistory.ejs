@@ -3,18 +3,26 @@
     <h1>Search List</h1>
     <h5>If a search is completed, you can click on the status to view results. Searches can take 1 - 10 minutes. You should refresh the page to refresh the search status.</h5>
     <h5>The following are all the recent searches performed on this website</h5>
-    <% searches.reverse().forEach(function(search){ %>
-      <div class= "ui vertical segment">
-        <p>Name:  <%= search.title %> </p>
-        <p>Date Searched:  <%= search.created %> </p>
-        <p>Status:  
-        <% if(search.status=="READY"){%>
-            <a href="/results/<%=search._id%>"><%= search.status %></a>
-          <% } else {%> 
-            <%= search.status %>
-          <% } %>
-        </p>
-      </div>
-    <% }) %>
+    <div style="overflow: auto;">
+      <% console.log(searches.hit);%>
+      <% searches.reverse().forEach(function(search){ %>
+        <div class= "ui vertical segment">
+          <p>Name:  <%= search.title %> </p>
+          
+            <p>Date Searched:  
+            <% var myDate = new Date(search.created); %>
+            <%= myDate.getTimezoneOffset() %> 
+            </p>
+            
+          <p>Status:  
+          <% if(search.status=="READY"){%>
+              <a href="/results/<%=search._id%>"><%= search.status %></a>
+            <% } else {%> 
+              <%= search.status %>
+            <% } %>
+          </p>
+        </div>
+      <% }) %>
+    </div>
   </div>
 <% include ./partials/footer %>
