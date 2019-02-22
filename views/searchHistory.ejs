@@ -11,7 +11,7 @@
           
             <p>Date Searched:  
             <% var myDate = new Date(search.created); %>
-            <%= myDate.getTimezoneOffset() %> 
+            <%= myDate.toLocaleString() %> 
             </p>
             
           <p>Status:  
