@@ -5,7 +5,7 @@ A Web App to perform and manage Blast Searches
 The link is here: https://calm-caverns-14471.herokuapp.com/
 
 ## I can't find my search! 
-While your search is processing, it may be down the page a litle bit. You can referesh the page to update the status of the search. 
+While your search is processing, it may be down the page a little bit. You can refresh the page to update the status of the search. 
 
 ## What is a BLAST Search?
 The National Institute of Biotechnology information hosts an API that allows you to submit an amino acid sequence and it will return the protein
